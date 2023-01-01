@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Hitung Mundur</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+			font-family: arial;
+		}
+		.cover {
+			width: 100%;
+			height: 100vh;
+			background-image: linear-gradient(260deg, #282A3A, #404258);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+		.content {
+			width: calc(100% - 10%);
+			padding: 10px;
+			height: 200px;
+			background-color: rgba(255,255,255, .1 );
+			display: flex;
+			justify-content: space-evenly;
+			align-items: center;
+			border-radius: 5px;
+			transition: .6s;
+			box-shadow: 0 0 12px rgba(0,0,0, .1 );
+		}
+
+		span.batang {
+			width: 50px;
+			height: 130px;
+			background-color: transparent;
+			display: inline-block;
+			position: relative;
+			border: solid black;
+
+		}
+		.batang .isi {
+			width: 100%;
+			background-color: #CFD2CF;
+			height: 0;
+			position: absolute;
+			left: 0;
+			bottom: 0;
+		}
+		.batang .k {
+			position: absolute;
+			left: 50%;
+			font-size: 18px;
+			font-weight: bold;
+			z-index: 2;
+			top: 50%;
+			color: grey;
+			transform: translate(-50%,-50%);
+
+		}
+		.batang .ket {
+			color: grey;
+			bottom: -20px;
+			transform: translateX(-50%);
+			left: 50%;
+			font-size: 10px;
+			font-weight: bold;
+			position: absolute;
+			letter-spacing: 2px;
+			text-transform: uppercase;
+		}
+		h1 {
+			color: white;
+			position: absolute;
+			top: 5%;
+			letter-spacing: 2px;
+			font-size: 1.5em;
+		}
+
+		.fix {
+			position: fixed;
+			z-index: 4;
+			width: 100%;
+			height: 100vh;
+			overflow: hidden;
+			background-color: rgba(0,0,0, .5);
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			opacity: 0;
+			transition: .6s;
+		}
+		.fix img.pentoy {
+			width: 130px;
+			position: absolute;
+			top: 8%;
+		}
+		.fix img.mail {
+			position: fixed;
+			z-index: 9;
+			top: 10px;
+			right: 10px;
+		}
+		.fix .pesan{
+			width: 100px;
+			position: fixed;
+			top: 15px;
+			right: 15px;
+			font-size: 8px;
+			background-color: grey;
+			color: black;
+			letter-spacing: 1px;
+			padding: 5px;
+		}
+		button{
+			border: none;
+			background-color: transparent ;
+		}
+		.fix p {
+			width: 300px;
+			text-align: justify;
+			color: white;
+			position: absolute;
+			top: 30%;
+			display: flex;
+			flex-wrap: wrap;
+		}
+		
+
+		@media only screen and (min-width: 700px ) {
+			.content {
+				width: 500px;
+			}
+			.content .batang {
+				width: 80px;
+			}
+			.batang .ket {
+				font-size: 1em;
+				bottom: -27px;
+			}
+			.batang .k{
+				font-size: 1.5em;
+			}
+			.cover .fix img.pentoy {
+				right: 10%;
+				top: 10%;
+			}
+			.cover .fix p {
+				left: 10%;
+				letter-spacing: 2px;
+			}
+
+		}
+		marquee{
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			width: 100px;
+			color: white;
+			letter-spacing:2px;
+			font-size: 8px;
+		}
+		h2{
+			position: absolute;
+			bottom: 10px;
+			font-size: 7px;
+			letter-spacing: 2px;
+			left: 50%;
+			transform: translateX(-50%);
+			color: grey;
+			opacity: .8;
+		}
+		h3{
+			font-size: 14px;
+			font-weight: bold;
+			position: absolute;
+			bottom: 10%;
+			color: white;
+			letter-spacing: 3px;
+		}
+	</style>
+</head>
+<body>
+	<div class="cover">
+		<div class="fix">
+			<marquee>Disarankan membuka dengan browser edge atau bawaan hp supaya audionya auto play</marquee>
+		<!--	<img src="src/HitungMundur.png" alt="" class="mail">
+			<div class="pesan">
+				Jika audio tidak bersuara disarankan membukanya di browser edge atau yang lainnya karena auto play di beberaoa browser di block, atau dengan menekan icon music di bawah
+				<button onclick="nyalainMusik(ambilAudio)"><img src="tiktok_msc2023.png" alt=""></button>
+			</div>-->
+			<img class="pentoy" src="src/HitungMundur.gif" alt="">
+			<p>
+				Terima kasih sudah selalu berbuat baik, semoga semua keinginan segera terwujud dan jangan lupa untuk selalu tersenyum 😊
+			</p>
+			<audio src="src/HitungMundur.mp3" data-p="a"></audio>
+			<h3>Selamat Datang di Hitung Mundur</h3>
+		</div>
+		<h1>Menuju Hitung Mundur</h1>
+		<div class="content">
+			<span class="batang hari"> <span class="k">0</span> <span class="isi"></span> <span class="ket">Hari</span></span>
+			<span class="batang jam"> <span class="k">0</span> <span class="isi"></span> <span class="ket">Jam</span></span>
+			<span class="batang menit"> <span class="k">0</span> <span class="isi"></span> <span class="ket">Menit</span></span>
+			<span class="batang detik"> <span class="k">0</span> <span class="isi"></span> <span class="ket">Detik</span></span>
+		</div>
+	</div>
+	<h2>@ Created by Abdul Mufid</h2>
+
+	<script>
+		// ambil element html
+		const hari = document.querySelector(".hari .k")
+		const jam = document.querySelector(".jam .k")
+		const menit = document.querySelector(".menit .k")
+		const detik = document.querySelector(".detik .k")
+		const batang = document.querySelectorAll(".batang .isi")
+		const ambilAudio = document.querySelector("audio")
+		// atur waktu
+
+		const waktuTujuan = new Date("Dec 30, 2023 00:00:00").getTime()
+		//alert(waktuTujuan)
+		let perhitungan = ()=> {
+			let waktuSekarang = new Date().getTime()
+			const waktuSet = waktuTujuan - waktuSekarang
+			let hari_a = Math.floor(waktuSet / (1000 * 60 * 60 * 24))
+			let jam_a = Math.floor((waktuSet % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+			let menit_a = Math.floor((waktuSet % (1000 * 60 * 60)) / (1000 * 60))
+			let detik_a = Math.floor((waktuSet % (1000 * 60)) / 1000)
+
+			hari.innerText = hari_a
+			jam.innerText = jam_a
+			menit.innerText = menit_a
+			detik.innerText = detik_a
+
+			batang[0].style.height = "calc("+ ((hari_a * 27.8)-8) / 100+"%)"
+			batang[1].style.height = "calc("+ jam_a * 416.6 / 100+"%)"
+			batang[2].style.height = "calc("+ menit_a * 166.6 / 100+"%)"
+			batang[3].style.height = "calc("+ detik_a *166.6 / 100+"%)"
+			if (hari_a < 1 && jam_a < 1 && menit_a < 1 && detik_a < 1) {
+				hari.innerText = 0
+			jam.innerText = 0
+			menit.innerText = 0
+			detik.innerText = 0
+				const content = document.querySelector(".content")
+				content.style.opacity = ".3"
+				clearInterval(interVL)
+				nyalainMusik(ambilAudio)
+				
+			}
+			//	alert(hari)
+		}
+				let nyalainMusik = (p) => {
+					const f =  document.querySelector(".fix")
+					const h1 = document.querySelector("h1")
+					h1.style.display = "none"
+					f.style.opacity = "1"
+					
+					if (p.getAttribute("data-p") == 'a') {
+						p.play()
+					}
+				}
+		//alert(7/100)
+		//nyalainMusik(ambilAudio )
+		let interVL = setInterval(perhitungan, 1000)
+	</script>
+</body>
+</html>
